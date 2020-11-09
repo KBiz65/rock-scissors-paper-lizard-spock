@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Manrope:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="rpsls.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 class="header">Rock, Paper, Scissors, Lizard, Spock</h1>
+      <h2 class="header-text">Choose Your Weapon!</h2>
+      <div id="weapon-images">
+        <img src="images/rock.png" alt="picture of a rock" id="rock" />
+        <img
+          src="images/paper.png"
+          alt="picture of a piece of paper"
+          id="paper"
+        />
+        <img
+          src="images/scissors.png"
+          alt="picture of a pair of scissors"
+          id="scissors"
+        />
+        <img src="images/lizard.png" alt="picture of a lizard" id="lizard" />
+        <img
+          src="images/spock.png"
+          alt="picture of a hand doing the Vulcan greeting"
+          id="spock"
+        />
+      </div>
+      <div class="instructions">
+        <h3 class="instructions-link">
+          <a href="instructions.html">How to play</a>
+        </h3>
+      </div>
+
+      <div id="choices-container">
+        <div class="user-container">
+          <h2 class="userChoice">User's Choice</h2>
+          <div id="userChoiceImage"></div>
+        </div>
+        <p class="small-text">VS.</p>
+        <div class="computer-container">
+          <h2 class="computerChoice">Computer's Choice</h2>
+          <div id="computerChoiceImage"></div>
+        </div>
+      </div>
+
+      <div class="scoresContainer">
+        <div class="totals">
+          <p id="whoWinsText"></p>
+          <p class="pageText">Score</p>
+          <div class="scoreText">
+            <p id="userScore">You:</p>
+            <p id="tieScore">Tie:</p>
+            <p id="computerScore">Computer:</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="rpsls.js"></script>
+  </body>
+</html>
