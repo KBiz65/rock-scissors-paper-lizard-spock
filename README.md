@@ -23,4 +23,4 @@ I ended up writting this app in just under a week. Although I ran into a few pro
 
 ## Author
 
-* **Kevin Bisner** - *Full-Stack Software Developer* - [Website](www.kevinbisner.com) | [LinkedIn](https://www.linkedin.com/in/kevinbisner/)
+* **Kevin Bisner** - *Full-Stack Software Developer* - [Website](http://www.kevinbisner.com) | [LinkedIn](https://www.linkedin.com/in/kevinbisner/)
