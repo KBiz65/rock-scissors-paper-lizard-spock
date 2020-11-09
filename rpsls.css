@@ -174,3 +174,45 @@ img {
   font-size: 1.5rem;
   border: 1px solid black;
 }
+
+@media only screen and (max-width: 768px) {
+  .main-container {
+    width: 95%;
+  }
+
+  .header {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+
+  .header-text {
+    font-size: 1.6rem;
+  }
+
+  #weapon-images {
+    width: 100%;
+  }
+
+  .instructions-link > a {
+    font-size: 1.5rem;
+  }
+
+  #choices-container {
+    width: 100%;
+  }
+
+  #who-wins-text {
+    font-size: 1.25rem;
+  }
+
+  .score-tally {
+    width: 100%;
+    padding: 0;
+  }
+
+  #user-score,
+  #tie-score,
+  #computer-score {
+    font-size: 1.25rem;
+  }
+}
