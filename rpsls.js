@@ -37,15 +37,20 @@ let userScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 
+const userImageContainer = document.getElementById("userChoiceImage");
+const compImagecontainer = document.getElementById("computerChoiceImage");
+
 const userWeaponOptions = document.getElementById("weapon-images");
 userWeaponOptions.addEventListener("click", function (e) {
   userChoice = e.target.id;
-  whoWins(userChoice);
+  if (userChoice !== "weapon-images") {
+    whoWins(userChoice);
+  }
 });
 
 function whoWins(userChoice) {
   const computerChoice = computerChooses();
-  const winnerDisplay = document.getElementById("whoWinsText");
+  const winnerDisplay = document.getElementById("who-wins-text");
   
   getVictims(userVictims, userChoice);
   getVictims(computerVictims, computerChoice);
@@ -55,6 +60,8 @@ function whoWins(userChoice) {
   if (computerChoice === userChoice) {
     tieScore++;
     winnerDisplay.textContent = "It's a tie!"
+    userImageContainer.style.border = "5px solid blue"
+    compImagecontainer.style.border = "5px solid blue"
     updateScores();
     return 0;
   }
@@ -63,6 +70,8 @@ function whoWins(userChoice) {
     if (userVictims[i].victim === computerChoice) {
       userScore++
       winnerDisplay.textContent = ("You win: " + userVictims[i].statement);
+      userImageContainer.style.border = "5px solid green"
+      compImagecontainer.style.border = "5px solid red"
       updateScores();
       return 0;
     }
@@ -72,6 +81,8 @@ function whoWins(userChoice) {
     if (computerVictims[i].victim === userChoice) {
       computerScore++
       winnerDisplay.textContent = ("Computer wins: " + computerVictims[i].statement)
+      userImageContainer.style.border = "5px solid red"
+      compImagecontainer.style.border = "5px solid green"
       updateScores();
       return 0;
     }
@@ -98,9 +109,7 @@ function getVictims(arr, weaponChoice) {
 }
 
 function displayImageChoices (userChoice="rock", computerChoice) {
-  const userImageContainer = document.getElementById("userChoiceImage");
   const userWeaponImage = document.createElement("img");
-  const compImagecontainer = document.getElementById("computerChoiceImage");
   const compWeaponImage = document.createElement("img");
 
   const currentUserWeaponImage = document.getElementById("userChoicePng");
@@ -124,11 +133,11 @@ function displayImageChoices (userChoice="rock", computerChoice) {
 
 }
 
-function updateScores() {
-  const userScoreDisplay = document.getElementById("userScore");
-  const computerScoreDisplay = document.getElementById("computerScore");
-  const tieScoreDisplay = document.getElementById("tieScore");
-  
+function updateScores() {  
+  const userScoreDisplay = document.getElementById("user-score");
+  const computerScoreDisplay = document.getElementById("computer-score");
+  const tieScoreDisplay = document.getElementById("tie-score");
+
   userScoreDisplay.textContent = ("You: " + userScore);
   tieScoreDisplay.textContent = ("Tie: " + tieScore);
   computerScoreDisplay.textContent = ("Computer: " + computerScore);

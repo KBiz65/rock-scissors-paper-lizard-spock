@@ -89,14 +89,88 @@ img {
 }
 
 #choices-container {
-  width: 100%;
+  width: 50%;
   margin-top: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  border: 2px solid purple;
 }
 
-.user-container {
+.user-container,
+.computer-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userChoice,
+.computerChoice,
+.small-text {
+  width: 100%;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#userChoiceImage,
+#computerChoiceImage {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+#userChoicePng,
+#compChoicePng {
+  margin: 0.5rem;
+}
+
+.scores-container {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#who-wins-text {
+  width: 100%;
+  font-family: "Manrope", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.page-text {
+  width: 100%;
+  margin-top: 2rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.score-tally {
+  width: 35%;
+  margin-top: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#user-score,
+#tie-score,
+#computer-score {
+  width: 100%;
+  padding: 0.25rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.5rem;
+  border: 1px solid black;
 }
