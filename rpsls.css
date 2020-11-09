@@ -193,6 +193,11 @@ img {
     width: 100%;
   }
 
+  #weapon-images > img {
+    max-width: 18%;
+    object-fit: contain;
+  }
+
   .instructions-link > a {
     font-size: 1.5rem;
   }
