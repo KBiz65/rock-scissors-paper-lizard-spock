@@ -70,3 +70,9 @@ img {
   width: 100%;
   object-fit: contain;
 }
+
+@media only screen and (max-width: 768px) {
+  .instructions-image {
+    width: 100%;
+  }
+}
