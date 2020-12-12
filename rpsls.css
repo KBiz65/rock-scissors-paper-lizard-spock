@@ -58,7 +58,7 @@ img {
   text-align: center;
 }
 
-#weapon-images {
+#weapons {
   width: 90%;
   margin-top: 2rem;
   display: flex;
@@ -67,7 +67,7 @@ img {
   justify-content: space-evenly;
 }
 
-#weapon-images > img {
+#weapons > img {
   margin: 0.25rem;
 }
 
@@ -189,11 +189,11 @@ img {
     font-size: 1.6rem;
   }
 
-  #weapon-images {
+  #weapons {
     width: 100%;
   }
 
-  #weapon-images > img {
+  #weapons > img {
     max-width: 18%;
     object-fit: contain;
   }
