@@ -1,59 +1,111 @@
-const weapons = [
-  {
-    name: "scissors",
-    beats: [
-      { victim: "paper", statement: "Scissors Cuts Paper!" },
-      { victim: "lizard", statement: "Scissors Decapitates Lizard!" }],
-  },
-  {
-    name: "paper",
-    beats: [
-      { victim: "rock", statement: "Paper Covers Rock!" },
-      { victim: "spock", statement: "Paper Disproves Spock!" }],
-  },
-  {
-    name: "rock",
-    beats: [
-      { victim: "lizard", statement: "Rock Crushes Lizard!" },
-      { victim: "scissors", statement: "Rock Crushes Scissors!" }],
-  },
-  {
-    name: "lizard",
-    beats: [
-      { victim: "spock", statement: "Lizard Poisons Spock!" },
-      { victim: "paper", statement: "Lizard Eats Paper!" }],
-  },
-  {
-    name: "spock",
-    beats: [
-      { victim: "scissors", statement: "Spock Smashes Scissors!" },
-      { victim: "rock", statement: "Spock Vaporizes Rock!" }],
-  },
-];
-
+//global variables
 const userVictims = [];
 const computerVictims = [];
 let userScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 
+const winnerDisplay = document.getElementById("who-wins-text");
 const userImageContainer = document.getElementById("userChoiceImage");
-const compImagecontainer = document.getElementById("computerChoiceImage");
+const compImageContainer = document.getElementById("computerChoiceImage");
 
-const userWeaponOptions = document.getElementById("weapon-images");
-userWeaponOptions.addEventListener("click", function (e) {
-  userChoice = e.target.id;
-  if (userChoice !== "weapon-images") {
+setupGame();
+
+function setupGame() {
+  const userWeaponOptions = document.getElementById("weapons");
+  for (let i = 0; i < userWeaponOptions.children.length; i++) {
+    let weapon = userWeaponOptions.children[i];
+    weapon.addEventListener("click", function (e) {
+    userChoice = e.target.id;
     whoWins(userChoice);
+    });
   }
-});
+}
 
 function whoWins(userChoice) {
   const computerChoice = computerChooses();
-  const winnerDisplay = document.getElementById("who-wins-text");
-  
-  getVictims(userVictims, userChoice);
-  getVictims(computerVictims, computerChoice);
+
+//if user wins
+  if (userChoice === "scissors" && computerChoice === "paper") {
+    whenUserWinsDisplay("Scissors Cuts Paper!");
+  }
+
+  if (userChoice === "paper" && computerChoice === "rock") {
+    whenUserWinsDisplay("Paper Covers Rock!");
+  }
+
+  if (userChoice === "rock" && computerChoice === "lizard") {
+    whenUserWinsDisplay("Rock Crushes Lizard!");
+  }
+
+  if (userChoice === "lizard" && computerChoice === "spock") {
+    whenUserWinsDisplay("Lizard Poisons Spock!");
+  }
+
+  if (userChoice === "spock" && computerChoice === "scissors") {
+    whenUserWinsDisplay("Spock Smashes Scissors!");
+  }
+
+  if (userChoice === "scissors" && computerChoice === "lizard") {
+    whenUserWinsDisplay("Scissors Decapitates Lizard!");
+  }
+
+  if (userChoice === "lizard" && computerChoice === "paper") {
+    whenUserWinsDisplay("Lizard Eats Paper!");
+  }
+
+  if (userChoice === "paper" && computerChoice === "spock") {
+    whenUserWinsDisplay("Paper Disproves Spock!");
+  }
+
+  if (userChoice === "spock" && computerChoice === "rock") {
+    whenUserWinsDisplay("Spock Vaporizes Rock!");
+  }
+
+  if (userChoice === "rock" && computerChoice === "scissors") {
+    whenUserWinsDisplay("Rock Crushes Scissors!");
+  }
+
+//if computer wins
+  if (computerChoice === "scissors" && userChoice === "paper") {
+    whenComputerWinsDisplay("Scissors Cuts Paper!");
+  }
+
+  if (computerChoice === "paper" && userChoice === "rock") {
+    whenComputerWinsDisplay("Paper Covers Rock!");
+  }
+
+  if (computerChoice === "rock" && userChoice === "lizard") {
+    whenComputerWinsDisplay("Rock Crushes Lizard!");
+  }
+
+  if (computerChoice === "lizard" && userChoice === "spock") {
+    whenComputerWinsDisplay("Lizard Poisons Spock!");
+  }
+
+  if (computerChoice === "spock" && userChoice === "scissors") {
+    whenComputerWinsDisplay("Spock Smashes Scissors!");
+  }
+
+  if (computerChoice === "scissors" && userChoice === "lizard") {
+    whenComputerWinsDisplay("Scissors Decapitates Lizard!");
+  }
+
+  if (computerChoice === "lizard" && userChoice === "paper") {
+    whenComputerWinsDisplay("Lizard Eats Paper!");
+  }
+
+  if (computerChoice === "paper" && userChoice === "spock") {
+    whenComputerWinsDisplay("Paper Disproves Spock!");
+  }
+
+  if (computerChoice === "spock" && userChoice === "rock") {
+    whenComputerWinsDisplay("Spock Vaporizes Rock!");
+  }
+
+  if (computerChoice === "rock" && userChoice === "scissors") {
+    whenComputerWinsDisplay("Rock Crushes Scissors!");
+  }
   
   displayImageChoices(userChoice, computerChoice);
 
@@ -61,20 +113,9 @@ function whoWins(userChoice) {
     tieScore++;
     winnerDisplay.textContent = "It's a tie!"
     userImageContainer.style.border = "5px solid blue"
-    compImagecontainer.style.border = "5px solid blue"
+    compImageContainer.style.border = "5px solid blue"
     updateScores();
     return 0;
-  }
-  
-  for (i = 0; i < userVictims.length; i++) {
-    if (userVictims[i].victim === computerChoice) {
-      userScore++
-      winnerDisplay.textContent = ("You win: " + userVictims[i].statement);
-      userImageContainer.style.border = "5px solid green"
-      compImagecontainer.style.border = "5px solid red"
-      updateScores();
-      return 0;
-    }
   }
   
   for (i = 0; i < computerVictims.length; i++) {
@@ -82,7 +123,7 @@ function whoWins(userChoice) {
       computerScore++
       winnerDisplay.textContent = ("Computer wins: " + computerVictims[i].statement)
       userImageContainer.style.border = "5px solid red"
-      compImagecontainer.style.border = "5px solid green"
+      compImageContainer.style.border = "5px solid green"
       updateScores();
       return 0;
     }
@@ -90,55 +131,44 @@ function whoWins(userChoice) {
 }
 
 function computerChooses() {
-  const randomChoice = Math.floor(Math.random() * 5);
-  const weaponArray = weapons[randomChoice];
-  const compWeaponName = weaponArray["name"];
-
-  return compWeaponName;
+  const weapons = ["scissors", "paper", "rock", "lizard", "spock"];
+  return weapons[Math.floor(Math.random() * 5)];
 }
 
-function getVictims(arr, weaponChoice) {
-  for (i = 0; i < weapons.length; i++) {
-    if (weaponChoice === weapons[i].name) {
-      arr.splice(0, arr.length);
-      arr.push(weapons[i]["beats"][0]);
-      arr.push(weapons[i]["beats"][1]);
-    }
-  }
-  return 0;
+function whenUserWinsDisplay(victoryText) {
+  userScore += 1;
+  winnerDisplay.textContent = ("You win: " + victoryText);
+  userImageContainer.style.border = "5px solid green";
+  compImageContainer.style.border = "5px solid red";
+  updateScores();
 }
 
-function displayImageChoices (userChoice="rock", computerChoice) {
-  const userWeaponImage = document.createElement("img");
-  const compWeaponImage = document.createElement("img");
+function whenComputerWinsDisplay(victoryText) {
+  computerScore++
+  winnerDisplay.textContent = ("Computer wins: " + victoryText)
+  userImageContainer.style.border = "5px solid red"
+  compImageContainer.style.border = "5px solid green"
+  updateScores(); 
+}
 
-  const currentUserWeaponImage = document.getElementById("userChoicePng");
-  const currentCompWeaponImage = document.getElementById("compChoicePng");
+function displayImageChoices(userChoice, computerChoice) {
+  const userWeapon = document.getElementById(userChoice).cloneNode();
+  const computerWeapon = document.getElementById(computerChoice).cloneNode();
   
-  if (currentUserWeaponImage) {
-    currentUserWeaponImage.remove();
+  if (userImageContainer.firstChild) {
+    userImageContainer.firstChild.remove();
   }
 
-  if (currentCompWeaponImage) {
-    currentCompWeaponImage.remove();
+  if (compImageContainer.firstChild) {
+    compImageContainer.firstChild.remove();
   }
 
-  userWeaponImage.setAttribute("id", "userChoicePng"); 
-  userWeaponImage.src = "images/" + userChoice + ".png";
-  userImageContainer.appendChild(userWeaponImage); 
-
-  compWeaponImage.setAttribute("id", "compChoicePng"); 
-  compWeaponImage.src = "images/" + computerChoice + ".png";
-  compImagecontainer.appendChild(compWeaponImage); 
-
+  userImageContainer.appendChild(userWeapon); 
+  compImageContainer.appendChild(computerWeapon);
 }
 
 function updateScores() {  
-  const userScoreDisplay = document.getElementById("user-score");
-  const computerScoreDisplay = document.getElementById("computer-score");
-  const tieScoreDisplay = document.getElementById("tie-score");
-
-  userScoreDisplay.textContent = ("You: " + userScore);
-  tieScoreDisplay.textContent = ("Tie: " + tieScore);
-  computerScoreDisplay.textContent = ("Computer: " + computerScore);
+  document.getElementById("user-score").textContent = "You: " + userScore;
+  document.getElementById("tie-score").textContent = "Tie: " + tieScore;
+  document.getElementById("computer-score").textContent = "Computer: " + computerScore;
 }
