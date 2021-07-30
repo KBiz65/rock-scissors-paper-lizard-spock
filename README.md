@@ -7,7 +7,7 @@ _This is the classic Rock, Paper, Scissors app Big Bang Theory style!_
 
 <br>
 
-Play in [here](https://kbiz65.github.io/rock-scissors-paper-app)
+Play in [here](https://kbiz65.github.io/rock-scissors-paper-lizard-spock/)
 
 <br>
 
